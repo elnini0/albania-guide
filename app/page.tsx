@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { NavHeader, Footer } from './components/common';
+import { Footer } from './components/common';
 
 export default function Home() {
   return (
@@ -48,7 +48,7 @@ export default function Home() {
                         Day 1: Tivat - Budva - Bar - Ulcinj - Skadar - Tirana
                       </Link>
                     </h3>
-                    <p className="text-gray-600 mb-4">Begin your adventure along Montenegro's stunning coast before crossing into Albania.</p>
+                    <p className="text-gray-600 mb-4">Begin your adventure along Montenegro&apos;s stunning coast before crossing into Albania.</p>
                     <Link href="/day1" className="text-blue-600 hover:text-blue-800">
                       View Details →
                     </Link>
@@ -71,7 +71,7 @@ export default function Home() {
                         Day 2: Tirana - Bulqizi Lake - Peshkopi
                       </Link>
                     </h3>
-                    <p className="text-gray-600 mb-4">Explore Albania's rugged interior and stunning mountain landscapes.</p>
+                    <p className="text-gray-600 mb-4">Explore Albania&apos;s rugged interior and stunning mountain landscapes.</p>
                     <Link href="/day2" className="text-blue-600 hover:text-blue-800">
                       View Details →
                     </Link>

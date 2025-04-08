@@ -1,20 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { NavHeader, Footer, Breadcrumbs } from '../components/common';
 
 export default function Day1() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <NavHeader 
-        title="Albania & Montenegro Off-Road Guide" 
-        subtitle="6-Day Land Cruiser Expedition Through the Balkans" 
-      />
-
-      {/* Hero Section */}
+      {/* Header */}
       <div className="relative h-[40vh] bg-gray-900 flex items-center justify-center text-white">
         <div className="absolute inset-0 opacity-60 bg-black">
           <Image 
-            src="/images/day1_route_map.png" 
+            src="/maps/day1_route_map.png" 
             alt="Day 1 Route Map" 
             fill 
             style={{objectFit: 'cover'}}
@@ -24,7 +18,7 @@ export default function Day1() {
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">Day 1: Tivat - Budva - Bar - Ulcinj - Skadar - Tirana</h1>
           <p className="text-lg md:text-xl">
-            Begin your adventure along Montenegro&apos;s stunning coast before crossing into Albania
+            Begin your adventure along Montenegro's stunning coast before crossing into Albania
           </p>
         </div>
       </div>
@@ -32,13 +26,17 @@ export default function Day1() {
       {/* Navigation */}
       <div className="bg-white shadow-md">
         <div className="max-w-6xl mx-auto px-4 py-4">
-          <Breadcrumbs 
-            items={[
-              { label: 'Home', href: '/' },
-              { label: 'Itinerary', href: '/itinerary' },
-              { label: 'Day 1', href: '/day1' }
-            ]} 
-          />
+          <div className="flex items-center space-x-4">
+            <Link href="/" className="text-blue-600 hover:text-blue-800">
+              Home
+            </Link>
+            <span className="text-gray-400">/</span>
+            <Link href="/itinerary" className="text-blue-600 hover:text-blue-800">
+              Itinerary
+            </Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-600">Day 1</span>
+          </div>
         </div>
       </div>
 
@@ -167,7 +165,7 @@ export default function Day1() {
                   <span className="font-semibold">Montenegro to Albania:</span> Border crossing at Sukobin/Muriqan
                 </div>
                 <div className="mb-4">
-                  <span className="font-semibold">Documents Needed:</span> Vehicle registration, driver&apos;s license, insurance green card with Albania coverage
+                  <span className="font-semibold">Documents Needed:</span> Vehicle registration, driver's license, insurance green card with Albania coverage
                 </div>
                 <div>
                   <span className="font-semibold">Tip:</span> Border can be busy in summer; cross early morning if possible
@@ -184,7 +182,7 @@ export default function Day1() {
               <div className="mb-6">
                 <div className="relative h-48 mb-4">
                   <Image 
-                    src="/images/day1_route_map.png" 
+                    src="/maps/day1_route_map.png" 
                     alt="Day 1 Route Map" 
                     fill 
                     style={{objectFit: 'cover'}}
@@ -222,7 +220,16 @@ export default function Day1() {
         </div>
       </div>
 
-      <Footer />
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold mb-4">Albania & Montenegro Off-Road Guide</h2>
+            <p className="mb-4">Land Cruiser Expedition Through the Balkans</p>
+            <p className="text-gray-400">© 2025 Albania-Montenegro Guide</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-} 
+}
