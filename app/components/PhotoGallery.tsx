@@ -16,13 +16,13 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, className = '' }) =
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = React.useState(false);
 
-  const handlePrev = () => {
+  const handlePrev = React.useCallback(() => {
     setActiveIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
-  };
+  }, [photos.length]);
 
-  const handleNext = () => {
+  const handleNext = React.useCallback(() => {
     setActiveIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
-  };
+  }, [photos.length]);
 
   const openLightbox = (index: number) => {
     setActiveIndex(index);
@@ -49,7 +49,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, className = '' }) =
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isLightboxOpen]);
+  }, [isLightboxOpen, handlePrev, handleNext]);
 
   return (
     <div className={`${className}`}>

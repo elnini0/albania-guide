@@ -6,7 +6,7 @@ const NavHeader = ({ title, subtitle }: { title: string; subtitle: string }) => 
   <div className="relative h-[40vh] bg-gray-900 flex items-center justify-center text-white">
     <div className="absolute inset-0 opacity-60 bg-black">
       <Image 
-        src="/maps/day3_route_map.png" 
+        src="/images/day3_route_map.png" 
         alt="Albania Montenegro Map" 
         fill 
         style={{objectFit: 'cover'}}
