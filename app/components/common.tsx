@@ -1,24 +1,106 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Component for the navigation header
-const NavHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
-  <div className="relative h-[40vh] bg-gray-900 flex items-center justify-center text-white">
-    <div className="absolute inset-0 opacity-60 bg-black">
-      <Image 
-        src="/images/day3_route_map.png" 
-        alt="Albania Montenegro Map" 
-        fill 
-        style={{objectFit: 'cover'}}
-        priority
-      />
-    </div>
-    <div className="relative z-10 text-center px-4 max-w-4xl">
-      <h1 className="text-3xl md:text-5xl font-bold mb-4">{title}</h1>
-      <p className="text-lg md:text-xl">{subtitle}</p>
-    </div>
-  </div>
-);
+interface NavHeaderProps {
+  title: string;
+  subtitle?: string;
+}
+
+export function NavHeader({ title, subtitle }: NavHeaderProps) {
+  return (
+    <header className="bg-white shadow-md">
+      <div className="max-w-6xl mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <Link href="/" className="text-xl font-bold text-gray-800">
+              {title}
+            </Link>
+            {subtitle && (
+              <span className="hidden md:block text-gray-600">| {subtitle}</span>
+            )}
+          </div>
+          <nav className="hidden md:flex space-x-6">
+            <Link href="/" className="text-gray-600 hover:text-gray-900">
+              Home
+            </Link>
+            <Link href="/itinerary" className="text-gray-600 hover:text-gray-900">
+              Itinerary
+            </Link>
+            <Link href="/maps" className="text-gray-600 hover:text-gray-900">
+              Maps
+            </Link>
+            <Link href="/safety" className="text-gray-600 hover:text-gray-900">
+              Safety
+            </Link>
+            <Link href="/vehicle" className="text-gray-600 hover:text-gray-900">
+              Vehicle
+            </Link>
+          </nav>
+          <button className="md:hidden hamburger-button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className="bg-gray-800 text-white py-8 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-xl font-bold mb-4">About</h3>
+            <p className="text-gray-400">
+              A comprehensive guide for off-road enthusiasts exploring Albania and Montenegro in Land Cruisers.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-gray-400 hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/itinerary" className="text-gray-400 hover:text-white">
+                  Itinerary
+                </Link>
+              </li>
+              <li>
+                <Link href="/maps" className="text-gray-400 hover:text-white">
+                  Maps
+                </Link>
+              </li>
+              <li>
+                <Link href="/safety" className="text-gray-400 hover:text-white">
+                  Safety
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <p className="text-gray-400">
+              For questions or suggestions, please reach out to us at:
+              <br />
+              <a href="mailto:info@albania-adventure.com" className="text-blue-400 hover:text-blue-300">
+                info@albania-adventure.com
+              </a>
+            </p>
+          </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} Albania & Montenegro Off-Road Guide. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 // Component for the breadcrumb navigation
 const Breadcrumbs = ({ items }: { items: {label: string; href?: string}[] }) => (
@@ -40,19 +122,6 @@ const Breadcrumbs = ({ items }: { items: {label: string; href?: string}[] }) => 
       </div>
     </div>
   </div>
-);
-
-// Component for the footer
-const Footer = () => (
-  <footer className="bg-gray-800 text-white py-8 px-4">
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center">
-        <h2 className="text-2xl font-bold mb-4">Albania & Montenegro Off-Road Guide</h2>
-        <p className="mb-4">Land Cruiser Expedition Through the Balkans</p>
-        <p className="text-gray-400">© 2025 Albania-Montenegro Guide</p>
-      </div>
-    </div>
-  </footer>
 );
 
 // Component for attraction cards
@@ -176,4 +245,4 @@ export const DaySidebar = ({
   </div>
 );
 
-export { NavHeader, Breadcrumbs, Footer };
+export { Breadcrumbs };
